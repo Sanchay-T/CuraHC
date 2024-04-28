@@ -16,6 +16,7 @@ import dotenv
 
 dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -158,9 +159,9 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
-AWS_ACCESS_KEY_ID = "AKIA524G4EF444CFIPBC"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = "curahcbucket"
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_SIGNATURE_NAME = ("s3v4",)
 AWS_S3_REGION_NAME = "ap-south-1"
 AWS_S3_FILE_OVERWRITE = False
