@@ -31,7 +31,7 @@ class CustomLoginView(LoginView):
         # Check if the user is an administrator
         if self.request.user.is_superuser:
             # Redirect admin users to the admin-specific dashboard
-            return redirect(resolve_url("admin_dashboard"))
+            return HttpResponseRedirect(reverse("admin:index"))
         elif not Doctor.objects.filter(user=self.request.user).exists():
             # Redirect non-admin users without a Doctor profile to the profile creation page
             return redirect(resolve_url("doctor_add"))
