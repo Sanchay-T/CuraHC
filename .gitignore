@@ -3,3 +3,4 @@ env
 staticfiles
 static
 .idea
+db.sqlite3
