@@ -1,0 +1,155 @@
+{% extends base_template_name %}
+
+{% block content %}
+<div style="max-width: 700px; margin: 20px auto; background: #f9f9f9; border-radius: 10px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); padding: 20px;">
+    <h2 style="text-align: center; color: #333; margin-bottom: 30px;">Register Doctor</h2>
+    <form method="post" enctype="multipart/form-data">
+      
+        {% csrf_token %}
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px;">Full Name:</label>
+            <input type="text" name="full_name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            {% if form.full_name.errors %}
+                <div style="color: red; margin-top: 5px;">{{ form.full_name.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <!-- Date of Birth -->
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Date of Birth:</label>
+          <input type="date" name="date_of_birth" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+          {% if form.date_of_birth.errors %}
+              <div style="color: red; margin-top: 5px;">{{ form.date_of_birth.errors }}</div>
+          {% endif %}
+      </div>
+
+      <!-- WhatsApp Number -->
+      <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">WhatsApp Number:</label>
+          <input type="text" name="whatsapp_number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+          {% if form.whatsapp_number.errors %}
+              <div style="color: red; margin-top: 5px;">{{ form.whatsapp_number.errors }}</div>
+          {% endif %}
+      </div>
+
+      <!-- Alternate Number -->
+      <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Alternate Number:</label>
+          <input type="text" name="alternate_number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+          {% if form.alternate_number.errors %}
+              <div style="color: red; margin-top: 5px;">{{ form.alternate_number.errors }}</div>
+          {% endif %}
+      </div>
+
+      <!-- Email -->
+      <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Email:</label>
+          <input type="email" name="email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+          {% if form.email.errors %}
+              <div style="color: red; margin-top: 5px;">{{ form.email.errors }}</div>
+          {% endif %}
+      </div>  
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px;">Available Days:</label>
+            <div style="border: 1px solid #ddd; padding: 10px; border-radius: 4px;">
+                {% for day in form.available_days %}
+                    <label style="display: block; margin: 5px 0;">
+                        <input type="checkbox" name="{{ day.html_name }}" value="{{ day.choice_label }}" id="{{ day.id_for_label }}" {% if day.choice_value in day.value %}checked{% endif %}>
+                        {{ day.choice_label }}
+                    </label>
+                {% endfor %}
+            </div>
+            {% if form.available_days.errors %}
+                <div style="color: red; margin-top: 5px;">{{ form.available_days.errors }}</div>
+            {% endif %}
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+            <label style="display: block; margin-bottom: 5px;">Available Time:</label>
+            <input type="time" name="start_time" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px; margin-right: 10px;">
+            to
+            <input type="time" name="end_time" style="padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            {% if form.start_time.errors %}
+                <div style="color: red; margin-top: 5px;">{{ form.start_time.errors }}</div>
+            {% endif %}
+            {% if form.end_time.errors %}
+                <div style="color: red; margin-top: 5px;">{{ form.end_time.errors }}</div>
+            {% endif %}
+        </div>
+
+        <!-- Address -->
+        <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Address:</label>
+          <textarea name="address" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; height: 100px;"></textarea>
+          {% if form.address.errors %}
+              <div style="color: red; margin-top: 5px;">{{ form.address.errors }}</div>
+          {% endif %}
+      </div>
+
+      <!-- Specialty -->
+      <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Specialty:</label>
+          <input type="text" name="speciality" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+          {% if form.speciality.errors %}
+              <div style="color: red; margin-top: 5px;">{{ form.speciality.errors }}</div>
+          {% endif %}
+      </div>
+
+      <!-- Registration Number -->
+      <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Registration Number:</label>
+          <input type="text" name="registration_number" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+          {% if form.registration_number.errors %}
+              <div style="color: red; margin-top: 5px;">{{ form.registration_number.errors }}</div>
+          {% endif %}
+      </div>
+
+      <!-- Geographical Areas -->
+      <div style="margin-bottom: 15px;">
+          <label style="display: block; margin-bottom: 5px;">Geographical Areas:</label>
+          <textarea name="geographical_areas" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; height: 100px;"></textarea>
+          {% if form.geographical_areas.errors %}
+              <div style="color: red; margin-top: 5px;">{{ form.geographical_areas.errors }}</div>
+          {% endif %}
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; margin-bottom: 5px;">Photo:</label>
+        <input type="file" name="photo" id="photo" style="display: none;">
+        <label for="photo" style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; border-radius: 4px; cursor: pointer;">Upload Photo</label>
+        {% if form.photo.errors %}
+            <div style="color: red; margin-top: 5px;">{{ form.photo.errors }}</div>
+        {% endif %}
+        <span id="photo-name" style="margin-left: 10px;"></span>
+    </div>
+
+    <!-- Degree Certificate Upload -->
+    <div style="margin-bottom: 20px;">
+        <label style="display: block; margin-bottom: 5px;">Degree Certificate:</label>
+        <input type="file" name="degree_certificate" id="degree_certificate" style="display: none;">
+        <label for="degree_certificate" style="display: inline-block; padding: 10px 20px; background-color: #28a745; color: white; border-radius: 4px; cursor: pointer;">Upload Certificate</label>
+        {% if form.degree_certificate.errors %}
+            <div style="color: red; margin-top: 5px;">{{ form.degree_certificate.errors }}</div>
+        {% endif %}
+        <span id="certificate-name" style="margin-left: 10px;"></span>
+    </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button type="submit" style="background-color: #5cb85c; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;">Submit</button>
+        </div>
+
+
+        <script>
+          document.getElementById('photo').addEventListener('change', function() {
+              document.getElementById('photo-name').textContent = this.files[0].name;
+          });
+
+          document.getElementById('degree_certificate').addEventListener('change', function() {
+              document.getElementById('certificate-name').textContent = this.files[0].name;
+          });
+      </script>
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}My Django App{% endblock %}</title>
+    <!-- Include any global stylesheets or scripts here -->
+    {% comment %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    {% endcomment %}
+  </head>
+  <body>
+    <header>
+      <!-- Navigation bar, branding, etc. -->
+      <nav>
+        <ul>
+          {% comment %}
+          <li><a href="{% url 'home' %}">Home</a></li>
+          {% endcomment %}
+          <!-- Other navigation links -->
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- The block content is where child templates will insert their content -->
+      {% block content %} {% endblock content %}
+    </main>
+
+    <footer>
+      <!-- Footer content here -->
+      <p>© 2024 My Django App</p>
+    </footer>
+
+    <!-- Include any global JavaScript files here -->
+    {% comment %}
+    <script src="{% static 'js/script.js' %}"></script>
+    {% endcomment %}
+  </body>
+</html>

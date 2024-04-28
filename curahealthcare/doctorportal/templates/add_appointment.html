@@ -1,0 +1,109 @@
+{% extends "base.html" %} {% block content %}
+<div class="container mt-5">
+  <!-- Center the card in the middle of the page -->
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <!-- Card with shadow -->
+      <div class="card shadow">
+        <div class="card-header text-center">
+          <h2>Add Patient Record</h2>
+        </div>
+        <div class="card-body">
+          {% if form.non_field_errors %}
+          <div class="alert alert-danger" role="alert">
+            {% for error in form.non_field_errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+          <!-- Begin form -->
+          <form method="post" class="appointment-form">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="patient_name">Patient name:</label>
+              <input
+                type="text"
+                id="patient_name"
+                name="patient_name"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="appointment_time">Appointment time:</label>
+              <input
+                type="text"
+                id="appointment_time"
+                name="appointment_time"
+                class="form-control datetimepicker"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="number_of_sessions">Number of sessions:</label>
+              <input
+                type="number"
+                id="number_of_sessions"
+                name="number_of_sessions"
+                class="form-control"
+                min="1"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input
+                  type="checkbox"
+                  id="rx_complete"
+                  name="rx_complete"
+                  class="form-check-input"
+                />
+                <label class="form-check-label" for="rx_complete"
+                  >Rx complete</label
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="amount">Amount:</label>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                class="form-control"
+                min="0"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="payment_method">Payment method:</label>
+              <select
+                id="payment_method"
+                name="payment_method"
+                class="form-control"
+              >
+                <option value="gpay">GPay</option>
+                <option value="cash">Cash</option>
+              </select>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+          <!-- End form -->
+        </div>
+      </div>
+      <!-- End card -->
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    flatpickr(".datetimepicker", {
+      enableTime: true,
+      dateFormat: "Y-m-d H:i",
+    });
+  });
+</script>
+{% endblock %}

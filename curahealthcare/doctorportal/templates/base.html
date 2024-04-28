@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
+    />
+    <title>
+      Account Settings | CORK - Multipurpose Bootstrap Dashboard Template
+    </title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{% static 'assets/img/favicon.ico' %}"
+    />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700"
+      rel="stylesheet"
+    />
+    <link
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="{% static 'assets/css/plugins.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- In your base.html -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- If you need time picker -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
+
+
+    <!-- END GLOBAL MANDATORY STYLES -->
+     <!-- BEGIN PAGE LEVEL STYLES -->
+     {% block page_level_styles %}{% endblock page_level_styles %}
+    <!--  BEGIN CUSTOM STYLE FILE  -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'plugins/dropify/dropify.min.css' %}"
+    />
+    <link
+      href="{% static 'assets/css/users/account-setting.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+  <link href="{% static 'assets/css/loader.css' %}" rel="stylesheet" type="text/css" />
+  <link href="{% static 'assets/css/structure.css' %}" rel="stylesheet" type="text/css" />
+    <script src="{% static 'assets/js/loader.js' %}"></script>
+
+  <link href="{% static 'assets/css/dashboard/dash_1.css' %}" rel="stylesheet" type="text/css" />
+
+
+
+    {% block head %}
+<!-- ... other head content ... -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    {% endblock %}
+
+    <!--  END CUSTOM STYLE FILE  -->
+  </head>
+
+  <body class="alt-menu sidebar-noneoverflow">
+
+  <!-- BEGIN LOADER -->
+    <div id="load_screen"> <div class="loader"> <div class="loader-content">
+        <div class="spinner-grow align-self-center"></div>
+    </div></div></div>
+    <!--  END LOADER -->
+
+
+    <!--  BEGIN NAVBAR  -->
+    <div class="header-container fixed-top">
+      <header class="header navbar navbar-expand-sm expand-header">
+        <a
+          href="javascript:void(0);"
+          class="sidebarCollapse"
+          data-placement="bottom"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-menu"
+          >
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line></svg
+        ></a>
+
+
+      </header>
+    </div>
+    <!--  END NAVBAR  -->
+
+    <!--  BEGIN MAIN CONTAINER  -->
+    <div class="main-container sidebar-closed sbar-open" id="container">
+      <div class="overlay"></div>
+      <div class="cs-overlay"></div>
+      <div class="search-overlay"></div>
+
+
+    <!--  BEGIN SIDEBAR  -->
+    <div class="sidebar-wrapper sidebar-theme">
+
+        <nav id="sidebar">
+
+            <ul class="navbar-nav theme-brand flex-row  text-center">
+                <li class="nav-item theme-logo">
+                    <a href="index.html">
+                        <img src="" class="navbar-logo" alt="logo">
+                    </a>
+                </li>
+                <li class="nav-item theme-text">
+                    <a href="index.html" class="nav-link"> CURA HC </a>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled menu-categories" id="accordionExample">
+
+               <li class="menu">
+                <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                    <div style="text-align: center; width: 100%;">
+                        <span style="font-weight: bold; font-size: 20px; font-family: 'Arial', sans-serif; color: royalblue;">SIDEBAR</span>
+                    </div>
+                </a>
+            </li>
+
+
+
+
+                <li class="menu menu-heading">
+                    <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg><span>APPOINTMENTS</span></div>
+                </li>
+
+
+
+                {% url 'add_appointments' as add_appointments_url %}
+                {% url 'view_appointments' as view_appointments_url %}
+
+                <li class="menu{% if request.path == add_appointments_url %} active{% endif %}">
+                    <a href="{{ add_appointments_url }}" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
+                            <span>Add Appointments</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="menu{% if request.path == view_appointments_url %} active{% endif %}">
+                    <a href="{{ view_appointments_url }}" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <span>View Appointments</span>
+                        </div>
+                    </a>
+                </li>
+
+
+
+
+                <li class="menu menu-heading">
+                    <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg><span>PROFILE DETAILS</span></div>
+                </li>
+
+
+                {% url 'doctor_detail' pk=request.user.doctor_profile.pk as doctor_detail_url %}
+                <li class="menu{% if request.path == doctor_detail_url %} active{% endif %}">
+                    <a href="{{ doctor_detail_url }}" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="6"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                            </svg>
+                            <span>View Profile</span>
+                        </div>
+                    </a>
+                </li>
+
+
+                {% url 'doctor_update' pk=request.user.doctor_profile.pk as profile_update_url %}
+                <li class="menu{% if request.path == profile_update_url %} active{% endif %}">
+                    <a href="{{ profile_update_url }}" aria-expanded="false" class="dropdown-toggle">
+                        <div class="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-airplay">
+                                <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
+                                <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                            </svg>
+                            <span>Edit Profile</span>
+                        </div>
+                    </a>
+                </li>
+
+
+
+                <li class="menu menu-heading">
+                    <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-horizontal"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg><span>Logout</span></div>
+                </li>
+
+                <li class="menu">
+    <!-- Hidden form for logout -->
+                <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
+                    {% csrf_token %}
+                </form>
+            
+                <!-- Styled link that looks the same as before -->
+                <a href="#" onclick="document.getElementById('logout-form').submit();" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+                        <span>Logout</span>
+                    </div>
+                </a>
+            </li>
+
+
+
+
+            </ul>
+
+        </nav>
+
+    </div>
+    <!--  END SIDEBAR  -->
+
+
+      <!--  BEGIN CONTENT AREA  -->
+      <div id="content" class="main-content">
+        {% block content %}
+        <!-- This block will be replaced by individual page content -->
+        {% endblock %}
+          <!--  END CONTENT AREA  -->
+    </div>
+    <!-- END MAIN CONTAINER -->
+
+    
+
+    <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="{% static 'assets/js/libs/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'assets/js/app.js' %}"></script>
+
+    <script>
+      $(document).ready(function () {
+        App.init();
+      });
+    </script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    <!-- END GLOBAL MANDATORY SCRIPTS -->
+
+    <!--  BEGIN CUSTOM SCRIPTS FILE  -->
+
+    <script src="{% static 'plugins/dropify/dropify.min.js' %}"></script>
+    <script src="{% static 'plugins/blockui/jquery.blockUI.min.js' %}"></script>
+    <script src="{% static 'plugins/tagInput/tags-input.js' %}"></script>
+    <script src="{% static 'assets/js/users/account-settings.js' %}"></script>
+    <!--  END CUSTOM SCRIPTS FILE  -->
+
+    {% block scripts %}
+
+    {% endblock scripts %}
+
+  </body>
+</html>

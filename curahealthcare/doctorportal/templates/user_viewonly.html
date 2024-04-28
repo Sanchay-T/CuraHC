@@ -1,0 +1,163 @@
+{% extends base_template_name %}
+
+{% block head %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    body {
+        background-color: #f4f7f6;
+        font-family: 'Open Sans', sans-serif;
+        color: #555;
+    }
+    .profile-header {
+        background-color: #017bff;
+        color: #ffffff;
+        border-bottom: 4px solid #0056b3;
+        padding-bottom: 0.5rem;
+    }
+    .profile-detail {
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-top: -2rem;
+        margin-bottom: 2rem;
+    }
+    .profile-detail .label {
+        color: #777;
+        font-weight: 600;
+    }
+    .profile-detail .value {
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        font-size: 1.1rem;
+        color: #333;
+    }
+    .divider {
+        height: 2px;
+        background-color: #eee;
+        margin: 1rem 0;
+    }
+    .img-thumbnail {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0.25rem;
+    }
+    .update-button {
+        font-size: 1.1rem;
+        padding: 0.5rem 2rem;
+        border-radius: 0.25rem;
+        color: #fff;
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+    .update-button:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="profile-header text-center" style="text-align: center;">
+                <h1 style="color: white;">Doctor Profile Details</h1>
+            </div>
+
+
+            <div class="profile-detail mt-4 p-3">
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Full Name:</div>
+                    <div class="col-sm-8 value">{{ object.full_name }}</div>
+                </div>
+                <div class="divider"></div>
+                
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Date of Birth:</div>
+                    <div class="col-sm-8 value">{{ object.date_of_birth }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">WhatsApp Number:</div>
+                    <div class="col-sm-8 value">{{ object.whatsapp_number }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Alternate Number:</div>
+                    <div class="col-sm-8 value">{{ object.alternate_number }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Email:</div>
+                    <div class="col-sm-8 value">{{ object.email }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Address:</div>
+                    <div class="col-sm-8 value">{{ object.address }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Speciality:</div>
+                    <div class="col-sm-8 value">{{ object.speciality }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Registration Number:</div>
+                    <div class="col-sm-8 value">{{ object.registration_number }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Available Days:</div>
+                    <div class="col-sm-8 value">
+                        {% for day in object.available_days.all %}
+                            {{ day.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Available Time:</div>
+                    <div class="col-sm-8 value">{{ object.start_time }} - {{ object.end_time }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Geographical Areas:</div>
+                    <div class="col-sm-8 value">{{ object.geographical_areas }}</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Photo:</div>
+                    <div class="col-sm-8">
+                        <img src="{{ object.photo.url }}" alt="Doctor's Photo" class="img-thumbnail">
+                    </div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="row mb-3">
+                    <div class="col-sm-4 label">Degree Certificate:</div>
+                    <div class="col-sm-8">
+                        <img src="{{ object.degree_certificate.url }}" alt="Degree Certificate" class="img-thumbnail">
+                    </div>
+                </div>
+                
+                <!-- Update Profile Button -->
+                <div class="text-center mt-4">
+                    <a href="{% url 'doctor_update' object.id %}" class="btn update-button">Update Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

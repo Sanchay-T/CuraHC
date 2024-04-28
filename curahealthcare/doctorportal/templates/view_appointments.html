@@ -1,0 +1,156 @@
+{% extends base_template_name %} {% load static %} {% block page_level_styles %}
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static
+    'plugins/table/datatable/datatables.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'plugins/table/datatable/dt-global_style.css' %}"
+/>
+
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'plugins/table/datatable/datatables.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'plugins/table/datatable/dt-global_style.css' %}"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+/>
+{% endblock page_level_styles %} {% block content %}
+<div class="layout-px-spacing">
+  <div class="page-header">
+    <div class="page-title">
+      <h3>Appointments</h3>
+    </div>
+  </div>
+
+   {% comment %} <div class="my-4">
+      <a href="{% url 'add_appointments' %}" class="btn btn-primary">
+        <i class="fas fa-plus-circle"></i> Add Appointment
+      </a>
+    </div>
+  </div> {% endcomment %}
+
+
+  <div class="row" id="cancel-row">
+    <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+      <div class="widget-content widget-content-area br-6">
+        <table
+          id="default-ordering"
+          class="table table-hover"
+          style="width: 100%"
+        >
+          <thead>
+            <tr>
+              <th>SR NO</th>
+              <th>Patient Name</th>
+              <th>Appointment Timing</th>
+              <th>No. of Sessions</th>
+              <th>Rx Complete</th>
+              <th>Amount</th>
+              <th>Payment Status</th>
+              <th>Payment Method</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appointment in appointments %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ appointment.patient_name }}</td>
+              <td>{{ appointment.appointment_time }}</td>
+              <td>{{ appointment.number_of_sessions }}</td>
+              <td>{{ appointment.rx_complete }}</td>
+              <td>{{ appointment.amount }}</td>
+              <td>{{ appointment.amount_paid }}</td>
+              <td>{{ appointment.payment_method }}</td>
+              <td class="text-center">
+                <a
+                  href="{% url 'edit_appointment' appointment.id %}"
+                  class="btn btn-primary btn-sm"
+                  title="Edit"
+                >
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a
+                  href="{% url 'delete_appointment' appointment.id %}"
+                  class="btn btn-danger btn-sm"
+                  title="Delete"
+                >
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="9">No appointments found.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>SR NO</th>
+              <th>Patient Name</th>
+              <th>Appointment Timing</th>
+              <th>No. of Sessions</th>
+              <th>Rx Complete</th>
+              <th>Amount</th>
+              <th>Payment Status</th>
+              <th>Payment Method</th>
+              <th class="invisible"></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block scripts %}
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="{% static 'plugins/table/datatable/datatables.js' %}"></script>
+
+<script>
+  $("#default-ordering").DataTable({
+    dom:
+      "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
+      "<'table-responsive'tr>" +
+      "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
+    oLanguage: {
+      oPaginate: {
+        sPrevious:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+        sNext:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+      },
+      sInfo: "Showing page _PAGE_ of _PAGES_",
+      sSearch:
+        '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+      sSearchPlaceholder: "Search...",
+      sLengthMenu: "Results :  _MENU_",
+    },
+    order: [[3, "desc"]],
+    stripeClasses: [],
+    lengthMenu: [7, 10, 20, 50],
+    pageLength: 7,
+    drawCallback: function () {
+      $(".dataTables_paginate > .pagination").addClass(
+        " pagination-style-13 pagination-bordered"
+      );
+    },
+  });
+</script>
+<!-- END PAGE LEVEL SCRIPTS -->
+
+{% endblock %}

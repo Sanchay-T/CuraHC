@@ -1,0 +1,90 @@
+{% extends base_template_name %}{% load static %} {% block page_level_styles %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'plugins/table/datatable/datatables.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'plugins/table/datatable/dt-global_style.css' %}"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+/>
+<style>
+  .page-header {
+    margin-bottom: 20px;
+  }
+  .card-header {
+    background-color: #0056b3;
+    color: #fff;
+  }
+</style>
+{% endblock %} {% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-primary text-white">
+          <h2>Admin Dashboard</h2>
+        </div>
+        <div class="card-body">
+          <h3>Doctor Overview</h3>
+          <table
+            id="doctor-table"
+            class="table table-striped"
+            style="width: 100%"
+          >
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Full Name</th>
+                <th>Speciality</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for doctor in doctors %}
+              <tr>
+                <td>{{ doctor.user.username }}</td>
+                <td>{{ doctor.user.email }}</td>
+                <td>{{ doctor.full_name }}</td>
+                <td>{{ doctor.speciality }}</td>
+                <td>
+                  <a
+                    href="{% url 'doctor_appointments' doctor.pk %}"
+                    class="btn btn-info"
+                    >View Appointments</a
+                  >
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="{% static 'plugins/table/datatable/datatables.js' %}"></script>
+<script>
+  $(document).ready(function () {
+    $("#doctor-table").DataTable({
+      responsive: true,
+      order: [[2, "asc"]],
+      lengthMenu: [10, 20, 50, 100],
+      pageLength: 10,
+      language: {
+        paginate: {
+          previous: "<i class='fas fa-angle-left'></i>",
+          next: "<i class='fas fa-angle-right'></i>",
+        },
+      },
+    });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends base_template_name %} {% block content %}
+<div id="content" class="main-content">
+  <form method="post" class="appointment-form">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="patient_name">Patient name:</label>
+      <input
+        type="text"
+        id="patient_name"
+        name="patient_name"
+        class="form-control"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="appointment_time">Appointment time:</label>
+      <input
+        type="text"
+        id="appointment_time"
+        name="appointment_time"
+        class="form-control datetimepicker"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="number_of_sessions">Number of sessions:</label>
+      <input
+        type="number"
+        id="number_of_sessions"
+        name="number_of_sessions"
+        class="form-control"
+        min="1"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="rx_complete">Rx complete : </label>
+      <input
+        type="checkbox"
+        id="rx_complete"
+        name="rx_complete"
+        class="form-check-input"
+      />
+    </div>
+    <div class="form-group">
+      <label for="amount_paid">Amount:</label>
+      <input
+        type="number"
+        id="amount_paid"
+        name="amount_paid"
+        class="form-control"
+        min="0"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="payment_method">Payment method:</label>
+      <select id="payment_method" name="payment_method" class="form-control">
+        <option value="gpay">GPay</option>
+        <option value="cash">Cash</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock %} {% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    flatpickr(".datetimepicker", {
+      enableTime: true,
+      dateFormat: "Y-m-d H:i",
+    });
+  });
+</script>
+{% endblock %}

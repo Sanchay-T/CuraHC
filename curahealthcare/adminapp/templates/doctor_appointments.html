@@ -1,0 +1,110 @@
+{% extends base_template_name %} {% load static %} {% block page_level_styles %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'plugins/table/datatable/datatables.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'plugins/table/datatable/dt-global_style.css' %}"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+/>
+{% endblock page_level_styles %} {% block content %}
+<div class="layout-px-spacing">
+  <div class="page-header">
+    <div class="page-title">
+      <h3>Appointments for Dr. {{ doctor.full_name }}</h3>
+    </div>
+  </div>
+
+  <div class="row" id="cancel-row">
+    <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+      <div class="widget-content widget-content-area br-6">
+        <table
+          id="default-ordering"
+          class="table table-hover"
+          style="width: 100%"
+        >
+          <thead>
+            <tr>
+              <th>SR NO</th>
+              <th>Patient Name</th>
+              <th>Appointment Timing</th>
+              <th>No. of Sessions</th>
+              <th>Rx Complete</th>
+              <th>Amount</th>
+              <th>Payment Status</th>
+              <th>Payment Method</th>
+              <th class="text-center">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for appointment in object_list %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td>{{ appointment.patient_name }}</td>
+              <td>{{ appointment.appointment_time|date:"d M Y H:i" }}</td>
+              <td>{{ appointment.number_of_sessions }}</td>
+              <td>{{ appointment.rx_complete|yesno:"Yes,No" }}</td>
+              <td>${{ appointment.amount }}</td>
+              <td>{{ appointment.amount_paid|yesno:"Paid,Not Paid" }}</td>
+              <td>
+                {{ appointment.payment_method|default_if_none:"Not specified" }}
+              </td>
+              <td class="text-center">
+                <a
+                  href="{% url 'edit_appointment' appointment.id %}"
+                  class="btn btn-primary btn-sm"
+                  title="Edit"
+                >
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a
+                  href="{% url 'delete_appointment' appointment.id %}"
+                  class="btn btn-danger btn-sm"
+                  title="Delete"
+                >
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+            {% empty %}
+            <tr>
+              <td colspan="9">No appointments found.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>SR NO</th>
+              <th>Patient Name</th>
+              <th>Appointment Timing</th>
+              <th>No. of Sessions</th>
+              <th>Rx Complete</th>
+              <th>Amount</th>
+              <th>Payment Status</th>
+              <th>Payment Method</th>
+              <th class="invisible"></th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script src="{% static 'plugins/table/datatable/datatables.js' %}"></script>
+<script>
+  $(document).ready(function () {
+    $("#default-ordering").DataTable({
+      order: [[3, "desc"]],
+      lengthMenu: [7, 10, 20, 50],
+      pageLength: 7,
+    });
+  });
+</script>
+{% endblock %}

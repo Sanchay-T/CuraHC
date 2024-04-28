@@ -1,0 +1,5 @@
+env
+.env
+staticfiles
+static
+.idea
