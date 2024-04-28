@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import UserPassesTestMixin
 from doctorportal.models import Appointment, Doctor, Day
 from django.views.generic import TemplateView, ListView
+from django.http import HttpResponseForbidden
 
 
 # Create your views here.
@@ -18,6 +19,11 @@ class AdminDashboardView(UserPassesTestMixin, TemplateView):
         # Fetch all doctors and their associated user data
         context["doctors"] = Doctor.objects.select_related("user").all()
         return context
+
+    def handle_no_permission(self):
+        if self.raise_exception or self.request.user.is_authenticated:
+            return HttpResponseForbidden()  # or any other response
+        return super().handle_no_permission()
 
 
 class AdminAppointmentView(UserPassesTestMixin, TemplateView):

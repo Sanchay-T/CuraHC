@@ -6,10 +6,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path("admin/", admin.site.urls),
     path("", include("adminapp.urls")),  # add this line
     # Custom admin dashboard should come before the default 'admin/' path
     # Default admin URLs
-    path("admin/", admin.site.urls),
     # Include authentication URLs from Django
     path("accounts/", include("django.contrib.auth.urls")),
     # Your custom login and logout views
@@ -18,7 +18,11 @@ urlpatterns = [
         CustomLoginView.as_view(template_name="registration/login.html"),
         name="login",
     ),
-    path("logout/", auth_views.LogoutView.as_view(template_name='logged_out.html'), name="logout"),
+    path(
+        "logout/",
+        auth_views.LogoutView.as_view(template_name="logged_out.html"),
+        name="logout",
+    ),
     # Doctor specific URLs
     path("doctor/add/", DoctorCreateView.as_view(), name="doctor_add"),
     path("doctor/<int:pk>/", DoctorDetailView.as_view(), name="doctor_detail"),

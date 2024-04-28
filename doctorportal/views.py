@@ -25,26 +25,15 @@ class CustomLoginView(LoginView):
     template_name = "registration/login.html"
 
     def form_valid(self, form):
-        """Security check complete. Log the user in."""
         login(self.request, form.get_user())
-
-        # Check if the user is an administrator
         if self.request.user.is_superuser:
-            # Redirect admin users to the admin-specific dashboard
             return HttpResponseRedirect(reverse("admin:index"))
         elif not Doctor.objects.filter(user=self.request.user).exists():
-            # Redirect non-admin users without a Doctor profile to the profile creation page
-            return redirect(resolve_url("doctor_add"))
+            return redirect("doctor_add")
         else:
-            # Redirect non-admin users who already have a Doctor profile to the user-specific dashboard
             return redirect(self.get_success_url())
 
     def get_success_url(self):
-        """
-        This method returns the URL to which a regular, non-admin user should be redirected.
-        You can define this based on your application's logic.
-        """
-        # Redirect to a user-specific dashboard or appointments view
         return resolve_url("view_appointments")
 
 
