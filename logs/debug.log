@@ -16343,3 +16343,6 @@ File /Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/bo
 File /Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/botocore/utils.py first seen with mtime 1714318262.047211
 File /Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/botocore/docs/sharedexample.py first seen with mtime 1714318262.419254
 File /opt/homebrew/Cellar/python@3.10/3.10.12_1/Frameworks/Python.framework/Versions/3.10/lib/python3.10/multiprocessing/shared_memory.py first seen with mtime 1686091390.0
+File /Users/sanchaythalnerkar/CuraHealthCare/curahealthcare/settings.py previous mtime: 1714318161.0412457, current mtime: 1714321418.0130453
+/Users/sanchaythalnerkar/CuraHealthCare/curahealthcare/settings.py notified as changed. Signal results: [(<function template_changed at 0x103ce9090>, None), (<function translation_file_changed at 0x104a15e10>, None)].
+/Users/sanchaythalnerkar/CuraHealthCare/curahealthcare/settings.py changed, reloading.
