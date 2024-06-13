@@ -17,15 +17,14 @@ class DoctorForm(forms.ModelForm):
 
     class Meta:
         model = Doctor
-        exclude = ["user","profile_completed"]
+        exclude = ["user", "profile_completed"]
         widgets = {
             "date_of_birth": forms.DateInput(attrs={"type": "date"}),
-            "available_days": forms.CheckboxSelectMultiple(),
+            "available_days": forms.CheckboxSelectMultiple(),  # Ensure this is set correctly
         }
 
     def __init__(self, *args, **kwargs):
         super(DoctorForm, self).__init__(*args, **kwargs)
-        # Set form-control class selectively, exclude checkboxes
         for name, field in self.fields.items():
             if isinstance(field.widget, forms.CheckboxInput):
                 field.widget.attrs["class"] = "form-check-input"

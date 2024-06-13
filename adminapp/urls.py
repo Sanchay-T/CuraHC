@@ -2,14 +2,14 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path("admin/dashboard/", AdminDashboardView.as_view(), name="admin_dashboard"),
+    # The base path for "admin/dashboard/"
+    path("", AdminDashboardView.as_view(), name="admin_dashboard"),
+    # The path for "admin/dashboard/appointments/"
+    path("appointments/", AdminAppointmentView.as_view(), name="admin_appointments"),
+    # The path for "admin/dashboard/doctors/<int:doctor_id>/appointments/"
     path(
-        "admin/appointments/", AdminAppointmentView.as_view(), name="admin_appointments"
-    ),
-    path(
-        "admin/doctors/<int:doctor_id>/appointments/",
+        "doctors/<int:doctor_id>/appointments/",
         DoctorAppointmentsView.as_view(),
         name="doctor_appointments",
     ),
 ]
-

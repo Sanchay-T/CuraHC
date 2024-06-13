@@ -6,8 +6,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
+    path("admin/dashboard/", include("adminapp.urls")),
+    # Default admin URLs
     path("admin/", admin.site.urls),
-    path("", include("adminapp.urls")),  # add this line
     # Custom admin dashboard should come before the default 'admin/' path
     # Default admin URLs
     # Include authentication URLs from Django

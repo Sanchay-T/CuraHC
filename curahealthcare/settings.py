@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "crispy_forms",
     "crispy_bootstrap4",
+    "storages",
     "doctorportal",
     "adminapp",
 ]
@@ -147,47 +148,32 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 
-# STATIC_URL = "/static/"
-
-# Additional locations of static files
+# Static files (CSS, JavaScript, Images)
 STATICFILES_DIRS = [BASE_DIR / "static"]
-
-# The directory where collected static files will be stored for deployment
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
-CRISPY_TEMPLATE_PACK = "bootstrap4"
-
 
 # DigitalOcean Spaces configuration
 AWS_ACCESS_KEY_ID = os.environ.get("DO_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("DO_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("DO_SPACE_NAME")
-AWS_S3_ENDPOINT_URL = os.environ.get("DO_ENDPOINT_URL")
+AWS_S3_ENDPOINT_URL = "https://curahc.blr1.digitaloceanspaces.com"  # Removed https://
 AWS_S3_REGION_NAME = os.environ.get("DO_REGION_NAME")
 AWS_S3_SIGNATURE_VERSION = "s3v4"
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
-AWS_LOCATION = "curahc/static"  # Update this to match your structure
+AWS_LOCATION = "static"
+
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/"
 
 AWS_PUBLIC_MEDIA_LOCATION = "curahc/media/public"
 AWS_PRIVATE_MEDIA_LOCATION = "curahc/media/private"
 
-STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/"
-STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-
-# PUBLIC_MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{AWS_PUBLIC_MEDIA_LOCATION}/'
-# PRIVATE_MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{AWS_PRIVATE_MEDIA_LOCATION}/'
-
+# Logging
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
