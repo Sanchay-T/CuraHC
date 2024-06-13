@@ -93,14 +93,21 @@ WSGI_APPLICATION = "curahealthcare.wsgi.application"
 #     }
 # }
 
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get("RDS_DB_NAME"),
-        "USER": os.environ.get("RDS_USERNAME"),
-        "PASSWORD": os.environ.get("RDS_PASSWORD"),
-        "HOST": os.environ.get("RDS_HOSTNAME"),
-        "PORT": os.environ.get("RDS_PORT", "5432"),
+        "ENGINE": "django.db.backends.mysql",  # Change this to MySQL
+        "NAME": os.environ.get("DO_DB_NAME", "defaultdb"),
+        "USER": os.environ.get("DO_DB_USERNAME", "doadmin"),
+        "PASSWORD": os.environ.get("DO_DB_PASSWORD", "your_password"),
+        "HOST": os.environ.get(
+            "DO_DB_HOSTNAME",
+            "db-mysql-blr1-69986-do-user-16820395-0.c.db.ondigitalocean.com",
+        ),
+        "PORT": os.environ.get("DO_DB_PORT", "25060"),
+        "OPTIONS": {
+            "ssl": {"ssl-mode": "REQUIRED"},  # SSL mode required for Digital Ocean
+        },
     }
 }
 
@@ -160,22 +167,22 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 
-AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
-AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
-AWS_S3_SIGNATURE_NAME = ("s3v4",)
-AWS_S3_REGION_NAME = "ap-south-1"
+# DigitalOcean Spaces configuration
+AWS_ACCESS_KEY_ID = os.environ.get("DO_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("DO_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("DO_SPACE_NAME")
+AWS_S3_ENDPOINT_URL = os.environ.get("DO_ENDPOINT_URL")
+AWS_S3_REGION_NAME = os.environ.get("DO_REGION_NAME")
+AWS_S3_SIGNATURE_VERSION = "s3v4"
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
-AWS_S3_VERITY = True
-AWS_LOCATION = "static"
+AWS_LOCATION = "curahc/static"  # Update this to match your structure
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-# DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
-AWS_PUBLIC_MEDIA_LOCATION = "media/public"
-AWS_PRIVATE_MEDIA_LOCATION = "media/private"
+AWS_PUBLIC_MEDIA_LOCATION = "curahc/media/public"
+AWS_PRIVATE_MEDIA_LOCATION = "curahc/media/private"
 
-STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{AWS_LOCATION}/"
+STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL}/{AWS_LOCATION}/"
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
 # PUBLIC_MEDIA_URL = f'https://{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com/{AWS_PUBLIC_MEDIA_LOCATION}/'
