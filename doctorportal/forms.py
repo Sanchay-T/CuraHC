@@ -3,6 +3,7 @@ from .models import Doctor, Appointment, Day
 from django.forms import MultiWidget, TimeInput
 from django.forms.widgets import SelectDateWidget, TimeInput
 from django.forms import DateTimeInput
+from django.db.models import Case, When
 
 
 class DayForm(forms.ModelForm):
@@ -20,11 +21,37 @@ class DoctorForm(forms.ModelForm):
         exclude = ["user", "profile_completed"]
         widgets = {
             "date_of_birth": forms.DateInput(attrs={"type": "date"}),
-            "available_days": forms.CheckboxSelectMultiple(),  # Ensure this is set correctly
+            "available_days": forms.CheckboxSelectMultiple(),
         }
 
     def __init__(self, *args, **kwargs):
         super(DoctorForm, self).__init__(*args, **kwargs)
+
+        # Define the desired order of days
+        day_order = [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ]
+
+        # Get the days from the database
+        days_queryset = Day.objects.all()
+
+        # Create an order based on the desired order of days
+        preserved = Case(
+            *[When(name=day, then=pos) for pos, day in enumerate(day_order)]
+        )
+
+        # Sort the days based on the predefined order
+        sorted_days = days_queryset.order_by(preserved)
+
+        # Set the sorted days to the available_days field
+        self.fields["available_days"].queryset = sorted_days
+
         for name, field in self.fields.items():
             if isinstance(field.widget, forms.CheckboxInput):
                 field.widget.attrs["class"] = "form-check-input"

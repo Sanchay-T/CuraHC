@@ -1,4 +1,6 @@
-{% extends base_template_name %}{% load static %} {% block page_level_styles %}
+{% extends "base_admin.html" %}
+{% load static %}
+{% block page_level_styles %}
 <link
   rel="stylesheet"
   type="text/css"
@@ -14,76 +16,93 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
 />
 <style>
-  .page-header {
-    margin-bottom: 20px;
-  }
-  .card-header {
-    background-color: #0056b3;
-    color: #fff;
+  /* Additional responsive styling can be placed here */
+  @media (max-width: 768px) {
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      padding: 0.5em 1em; /* Increase padding for touch accessibility */
+    }
+    .dataTables_wrapper .dataTables_length select,
+    .dataTables_wrapper .dataTables_filter input {
+      font-size: 0.875rem; /* Increase font size for readability */
+    }
   }
 </style>
-{% endblock %} {% block content %}
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header bg-primary text-white">
-          <h2>Admin Dashboard</h2>
-        </div>
-        <div class="card-body">
-          <h3>Doctor Overview</h3>
-          <table
-            id="doctor-table"
-            class="table table-striped"
-            style="width: 100%"
-          >
-            <thead>
-              <tr>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Full Name</th>
-                <th>Speciality</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for doctor in doctors %}
-              <tr>
-                <td>{{ doctor.user.username }}</td>
-                <td>{{ doctor.user.email }}</td>
-                <td>{{ doctor.full_name }}</td>
-                <td>{{ doctor.speciality }}</td>
-                <td>
-                  <a
-                    href="{% url 'doctor_appointments' doctor.pk %}"
-                    class="btn btn-info"
-                    >View Appointments</a
-                  >
-                </td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
+{% endblock %}
+{% block content %}
+<div class="layout-px-spacing">
+  <div class="page-header">
+    <div class="page-title">
+      <h3>Doctor Overview</h3>
+    </div>
+  </div>
+  <div class="row" id="cancel-row">
+    <div class="col-xl-12 col-lg-12 col-sm-12 layout-spacing">
+      <div class="widget-content widget-content-area br-6">
+        <table
+          id="default-ordering"
+          class="table table-hover"
+          style="width: 100%"
+        >
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Full Name</th>
+            <th>Speciality</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for doctor in doctors %}
+          <tr>
+            <td>{{ doctor.user.username }}</td>
+            <td>{{ doctor.user.email }}</td>
+            <td>{{ doctor.full_name }}</td>
+            <td>{{ doctor.speciality }}</td>
+            <td>
+              <a
+                href="{% url 'doctor_appointments' doctor.pk %}"
+                class="btn btn-info"
+                >View Appointments</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+          
+        </table>
       </div>
     </div>
   </div>
 </div>
-{% endblock %} {% block scripts %}
+{% endblock %}
+{% block scripts %}
 <script src="{% static 'plugins/table/datatable/datatables.js' %}"></script>
 <script>
   $(document).ready(function () {
-    $("#doctor-table").DataTable({
+    $("#default-ordering").DataTable({
       responsive: true,
-      order: [[2, "asc"]],
+      dom:
+        "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
+        "<'table-responsive'tr>" +
+        "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
+      oLanguage: {
+        oPaginate: {
+          sPrevious:
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+          sNext:
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+        },
+        sInfo: "Showing page _PAGE_ of _PAGES_",
+        sSearch:
+          '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+        sSearchPlaceholder: "Search...",
+        sLengthMenu: "Results :  _MENU_",
+      },
+      order: [[0, "asc"]],
+      stripeClasses: [],
       lengthMenu: [10, 20, 50, 100],
       pageLength: 10,
-      language: {
-        paginate: {
-          previous: "<i class='fas fa-angle-left'></i>",
-          next: "<i class='fas fa-angle-right'></i>",
-        },
-      },
     });
   });
 </script>

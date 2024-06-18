@@ -17,7 +17,7 @@
 <div class="layout-px-spacing">
   <div class="page-header">
     <div class="page-title">
-      <h3>Appointments for Dr. {{ doctor.full_name }}</h3>
+      <h3>Appointments for {{ doctor.full_name }}</h3>
     </div>
   </div>
 
@@ -37,7 +37,6 @@
               <th>No. of Sessions</th>
               <th>Rx Complete</th>
               <th>Amount</th>
-              <th>Payment Status</th>
               <th>Payment Method</th>
               <th class="text-center">Action</th>
             </tr>
@@ -51,7 +50,6 @@
               <td>{{ appointment.number_of_sessions }}</td>
               <td>{{ appointment.rx_complete|yesno:"Yes,No" }}</td>
               <td>${{ appointment.amount }}</td>
-              <td>{{ appointment.amount_paid|yesno:"Paid,Not Paid" }}</td>
               <td>
                 {{ appointment.payment_method|default_if_none:"Not specified" }}
               </td>
