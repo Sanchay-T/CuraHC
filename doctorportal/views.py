@@ -18,20 +18,45 @@ from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.auth.models import User
 from .decorators import not_for_admins
 from django.utils.decorators import method_decorator
+from django.views import View
 
 
-@method_decorator([login_required, not_for_admins], name="dispatch")
+import logging
+
+# Configure logging at the beginning of your views.py or settings.py
+logging.basicConfig(
+    level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
+# Create a logger object
+logger = logging.getLogger(__name__)
+
+
+@method_decorator([not_for_admins], name="dispatch")
 class CustomLoginView(LoginView):
     template_name = "registration/login.html"
 
     def form_valid(self, form):
-        login(self.request, form.get_user())
-        if self.request.user.is_superuser:
+        user = form.get_user()
+        login(self.request, user)  # Log in the user
+        self.request.session.save()  # Force session save
+        logger.debug(
+            f"User {user.username} logged in successfully, session saved. Session ID: {self.request.session.session_key}"
+        )
+
+        # Determine the next URL to redirect to
+        next_url = self.request.GET.get("next", self.get_success_url())
+        logger.debug(f"Next URL parameter: {next_url}")
+
+        if user.is_superuser:
+            logger.debug("User is superuser. Redirecting to admin index.")
             return HttpResponseRedirect(reverse("admin:index"))
-        elif not Doctor.objects.filter(user=self.request.user).exists():
+        elif not Doctor.objects.filter(user=user).exists():
+            logger.debug("Doctor profile does not exist. Redirecting to doctor_add.")
             return redirect("doctor_add")
         else:
-            return redirect(self.get_success_url())
+            logger.debug(f"Redirecting to next URL or success URL: {next_url}")
+            return redirect(next_url)
 
     def get_success_url(self):
         return resolve_url("view_appointments")
@@ -197,3 +222,13 @@ def delete_appointment(request, appointment_id):
         appointment.delete()
         return redirect("view_appointments")  # Redirect to the appointment listing
     return render(request, "confirm_delete.html", {"appointment": appointment})
+
+
+class HomeView(View):
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect(
+                "view_appointments"
+            )  # Change to your desired URL after login
+        else:
+            return redirect("login")

@@ -164,7 +164,7 @@ AWS_S3_SIGNATURE_VERSION = "s3v4"
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 AWS_LOCATION = "static"
-
+# SESSION_COOKIE_SECURE = True
 DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 
@@ -192,3 +192,9 @@ LOGGING = {
         },
     },
 }
+
+SESSION_ENGINE = "django.contrib.sessions.backends.db"
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
+LOGIN_REDIRECT_URL = "view_appointments"  # Change to your desired URL after login
+LOGOUT_REDIRECT_URL = "login"  # Redirect to login page after logout
