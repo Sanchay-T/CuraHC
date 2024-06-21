@@ -122,9 +122,9 @@ class DoctorUpdateView(UpdateView):
             context["button_text"] = "Create Profile"
         return context
 
-    def get_object(self):
-        # Get the Doctor object for the current user
-        return get_object_or_404(Doctor, user=self.request.user)
+    def get_object(self, queryset=None):
+        pk = self.kwargs.get("pk")
+        return get_object_or_404(Doctor, pk=pk)
 
     def get_success_url(self):
         # Redirect to the doctor's detail page
