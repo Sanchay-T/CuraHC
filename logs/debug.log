@@ -23696,3 +23696,937 @@ Traceback (most recent call last):
 django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x105d609d0>>, 'request': <WSGIRequest: GET '/admin/dashboard/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'view': <adminapp.views.AdminAppointmentView object at 0x105d1ff40>, 'doctors': <QuerySet [<Doctor: Doctor object (1)>, <Doctor: Doctor object (3)>, <Doctor: Doctor object (4)>, <Doctor: Doctor object (5)>, <Doctor: Doctor object (6)>]>, 'doctor_detail_url': ''}]
 (0.068) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `doctorportal_doctor` INNER JOIN `auth_user` ON (`doctorportal_doctor`.`user_id` = `auth_user`.`id`); args=(); alias=default
 "GET /admin/dashboard/appointments/ HTTP/1.1" 200 23389
+(0.047) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.047) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.047) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:38:25.857224' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:38:25.857224', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.048) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.048) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `doctorportal_doctor` INNER JOIN `auth_user` ON (`doctorportal_doctor`.`user_id` = `auth_user`.`id`) LIMIT 21; args=(); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_view_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x105d62830>>, 'request': <WSGIRequest: GET '/admin/dashboard/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'view': <adminapp.views.AdminAppointmentView object at 0x105dc0d00>, 'doctors': <QuerySet [<Doctor: Doctor object (1)>, <Doctor: Doctor object (3)>, <Doctor: Doctor object (4)>, <Doctor: Doctor object (5)>, <Doctor: Doctor object (6)>]>}]
+(0.049) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_view_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.050) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `doctorportal_doctor` INNER JOIN `auth_user` ON (`doctorportal_doctor`.`user_id` = `auth_user`.`id`) LIMIT 21; args=(); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_view_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x105d62830>>, 'request': <WSGIRequest: GET '/admin/dashboard/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'view': <adminapp.views.AdminAppointmentView object at 0x105dc0d00>, 'doctors': <QuerySet [<Doctor: Doctor object (1)>, <Doctor: Doctor object (3)>, <Doctor: Doctor object (4)>, <Doctor: Doctor object (5)>, <Doctor: Doctor object (6)>]>, 'doctor_detail_url': ''}]
+(0.049) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed`, `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `doctorportal_doctor` INNER JOIN `auth_user` ON (`doctorportal_doctor`.`user_id` = `auth_user`.`id`); args=(); alias=default
+"GET /admin/dashboard/appointments/ HTTP/1.1" 200 23389
+(0.051) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.050) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.051) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:38:29.818117' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:38:29.818117', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.051) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.052) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.052) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b520>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d94790>, 'doctor': <Doctor: Doctor object (1)>}]
+(0.050) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b520>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d94790>, 'doctor': <Doctor: Doctor object (1)>, 'doctor_detail_url': ''}]
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1; args=(1,); alias=default
+"GET /admin/dashboard/doctors/1/appointments/ HTTP/1.1" 200 21144
+(0.050) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.051) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.050) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:38:34.393554' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:38:34.393554', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.050) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.049) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9ab00>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x106ced6c0>, 'doctor': <Doctor: Doctor object (1)>}]
+(0.050) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9ab00>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x106ced6c0>, 'doctor': <Doctor: Doctor object (1)>, 'doctor_detail_url': ''}]
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1; args=(1,); alias=default
+"GET /admin/dashboard/doctors/1/appointments/ HTTP/1.1" 200 21144
+File /Users/sanchaythalnerkar/CuraHealthCare/doctorportal/templates/view_appointments.html previous mtime: 1719080718.681994, current mtime: 1719081563.089776
+/Users/sanchaythalnerkar/CuraHealthCare/doctorportal/templates/view_appointments.html notified as changed. Signal results: [(<function template_changed at 0x10446d090>, True), (<function translation_file_changed at 0x104f28d30>, None)].
+(0.053) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.049) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.050) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:39:24.540187' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:39:24.540187', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.055) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.052) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b910>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d5b0d0>, 'doctor': <Doctor: Doctor object (1)>}]
+(0.049) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b910>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d5b0d0>, 'doctor': <Doctor: Doctor object (1)>, 'doctor_detail_url': ''}]
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1; args=(1,); alias=default
+"GET /admin/dashboard/doctors/1/appointments/ HTTP/1.1" 200 21144
+File /Users/sanchaythalnerkar/CuraHealthCare/doctorportal/templates/view_appointments.html previous mtime: 1719081563.089776, current mtime: 1719081568.5440042
+/Users/sanchaythalnerkar/CuraHealthCare/doctorportal/templates/view_appointments.html notified as changed. Signal results: [(<function template_changed at 0x10446d090>, True), (<function translation_file_changed at 0x104f28d30>, None)].
+File /Users/sanchaythalnerkar/CuraHealthCare/adminapp/templates/doctor_appointments.html previous mtime: 1719081375.0999892, current mtime: 1719081618.2977839
+/Users/sanchaythalnerkar/CuraHealthCare/adminapp/templates/doctor_appointments.html notified as changed. Signal results: [(<function template_changed at 0x10446d090>, True), (<function translation_file_changed at 0x104f28d30>, None)].
+(0.049) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.048) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.050) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:40:20.163702' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:40:20.163702', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.049) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.049) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.049) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.049) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b490>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105dc00a0>, 'doctor': <Doctor: Doctor object (1)>}]
+(0.048) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.049) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b490>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105dc00a0>, 'doctor': <Doctor: Doctor object (1)>, 'doctor_detail_url': ''}]
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1; args=(1,); alias=default
+"GET /admin/dashboard/doctors/1/appointments/ HTTP/1.1" 200 21146
+File /Users/sanchaythalnerkar/CuraHealthCare/adminapp/templates/doctor_appointments.html previous mtime: 1719081618.2977839, current mtime: 1719081625.2982602
+/Users/sanchaythalnerkar/CuraHealthCare/adminapp/templates/doctor_appointments.html notified as changed. Signal results: [(<function template_changed at 0x10446d090>, True), (<function translation_file_changed at 0x104f28d30>, None)].
+(0.050) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.049) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.050) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:40:25.953279' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:40:25.953279', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.050) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.050) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b910>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x106cede40>, 'doctor': <Doctor: Doctor object (1)>}]
+(0.050) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b910>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x106cede40>, 'doctor': <Doctor: Doctor object (1)>, 'doctor_detail_url': ''}]
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1; args=(1,); alias=default
+"GET /admin/dashboard/doctors/1/appointments/ HTTP/1.1" 200 21146
+File /Users/sanchaythalnerkar/CuraHealthCare/adminapp/templates/doctor_appointments.html previous mtime: 1719081625.2982602, current mtime: 1719081640.215975
+/Users/sanchaythalnerkar/CuraHealthCare/adminapp/templates/doctor_appointments.html notified as changed. Signal results: [(<function template_changed at 0x10446d090>, True), (<function translation_file_changed at 0x104f28d30>, None)].
+(0.051) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.050) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.051) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:40:42.058744' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:40:42.058744', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.051) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.052) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.053) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b910>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d1c130>, 'doctor': <Doctor: Doctor object (1)>}]
+(0.051) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b910>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/1/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: dummy1 - 2024-06-13 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d1c130>, 'doctor': <Doctor: Doctor object (1)>, 'doctor_detail_url': ''}]
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 1; args=(1,); alias=default
+"GET /admin/dashboard/doctors/1/appointments/ HTTP/1.1" 200 21147
+(0.048) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.048) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.048) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:40:55.005619' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:40:55.005619', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.048) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.049) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`id` = 4 LIMIT 21; args=(4,); alias=default
+(0.052) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4 LIMIT 21; args=(4,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4 LIMIT 21; args=(4,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b010>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/4/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/4/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: Bhanudas - 2024-06-19 10:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-19 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-19 03:30:00+00:00>, <Appointment: Kajal (elicure) - 2024-06-19 20:00:00+00:00>, <Appointment: Saksham (elicure) - 2024-06-19 17:00:00+00:00>, <Appointment: Saavi Main - 2024-06-20 09:30:00+00:00>, <Appointment: Bhanudas - 2024-06-20 11:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-20 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-20 15:30:00+00:00>, <Appointment: Pramod (Elicure) - 2024-06-20 06:00:00+00:00>, <Appointment: Astha (Elicure) - 2024-06-20 20:00:00+00:00>, <Appointment: Shaurya (Elicure) - 2024-06-20 19:00:00+00:00>, <Appointment: Bhanudas - 2024-06-21 11:00:00+00:00>, <Appointment: Shilpa Gadre - 2024-06-21 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: Bhanudas - 2024-06-19 10:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-19 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-19 03:30:00+00:00>, <Appointment: Kajal (elicure) - 2024-06-19 20:00:00+00:00>, <Appointment: Saksham (elicure) - 2024-06-19 17:00:00+00:00>, <Appointment: Saavi Main - 2024-06-20 09:30:00+00:00>, <Appointment: Bhanudas - 2024-06-20 11:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-20 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-20 15:30:00+00:00>, <Appointment: Pramod (Elicure) - 2024-06-20 06:00:00+00:00>, <Appointment: Astha (Elicure) - 2024-06-20 20:00:00+00:00>, <Appointment: Shaurya (Elicure) - 2024-06-20 19:00:00+00:00>, <Appointment: Bhanudas - 2024-06-21 11:00:00+00:00>, <Appointment: Shilpa Gadre - 2024-06-21 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d1e020>, 'doctor': <Doctor: Doctor object (4)>}]
+(0.049) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.049) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4 LIMIT 21; args=(4,); alias=default
+(0.049) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4 LIMIT 21; args=(4,); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b010>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/4/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/4/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: Bhanudas - 2024-06-19 10:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-19 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-19 03:30:00+00:00>, <Appointment: Kajal (elicure) - 2024-06-19 20:00:00+00:00>, <Appointment: Saksham (elicure) - 2024-06-19 17:00:00+00:00>, <Appointment: Saavi Main - 2024-06-20 09:30:00+00:00>, <Appointment: Bhanudas - 2024-06-20 11:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-20 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-20 15:30:00+00:00>, <Appointment: Pramod (Elicure) - 2024-06-20 06:00:00+00:00>, <Appointment: Astha (Elicure) - 2024-06-20 20:00:00+00:00>, <Appointment: Shaurya (Elicure) - 2024-06-20 19:00:00+00:00>, <Appointment: Bhanudas - 2024-06-21 11:00:00+00:00>, <Appointment: Shilpa Gadre - 2024-06-21 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: Bhanudas - 2024-06-19 10:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-19 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-19 03:30:00+00:00>, <Appointment: Kajal (elicure) - 2024-06-19 20:00:00+00:00>, <Appointment: Saksham (elicure) - 2024-06-19 17:00:00+00:00>, <Appointment: Saavi Main - 2024-06-20 09:30:00+00:00>, <Appointment: Bhanudas - 2024-06-20 11:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-20 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-20 15:30:00+00:00>, <Appointment: Pramod (Elicure) - 2024-06-20 06:00:00+00:00>, <Appointment: Astha (Elicure) - 2024-06-20 20:00:00+00:00>, <Appointment: Shaurya (Elicure) - 2024-06-20 19:00:00+00:00>, <Appointment: Bhanudas - 2024-06-21 11:00:00+00:00>, <Appointment: Shilpa Gadre - 2024-06-21 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d1e020>, 'doctor': <Doctor: Doctor object (4)>, 'doctor_detail_url': ''}]
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4; args=(4,); alias=default
+"GET /admin/dashboard/doctors/4/appointments/ HTTP/1.1" 200 31856
+File /Users/sanchaythalnerkar/CuraHealthCare/adminapp/templates/doctor_appointments.html previous mtime: 1719081640.215975, current mtime: 1719081711.3293626
+/Users/sanchaythalnerkar/CuraHealthCare/adminapp/templates/doctor_appointments.html notified as changed. Signal results: [(<function template_changed at 0x10446d090>, True), (<function translation_file_changed at 0x104f28d30>, None)].
+(0.049) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.048) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.049) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:41:55.011258' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:41:55.011258', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.049) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.049) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`id` = 4 LIMIT 21; args=(4,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4 LIMIT 21; args=(4,); alias=default
+(0.053) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4 LIMIT 21; args=(4,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b910>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/4/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/4/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: Bhanudas - 2024-06-19 10:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-19 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-19 03:30:00+00:00>, <Appointment: Kajal (elicure) - 2024-06-19 20:00:00+00:00>, <Appointment: Saksham (elicure) - 2024-06-19 17:00:00+00:00>, <Appointment: Saavi Main - 2024-06-20 09:30:00+00:00>, <Appointment: Bhanudas - 2024-06-20 11:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-20 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-20 15:30:00+00:00>, <Appointment: Pramod (Elicure) - 2024-06-20 06:00:00+00:00>, <Appointment: Astha (Elicure) - 2024-06-20 20:00:00+00:00>, <Appointment: Shaurya (Elicure) - 2024-06-20 19:00:00+00:00>, <Appointment: Bhanudas - 2024-06-21 11:00:00+00:00>, <Appointment: Shilpa Gadre - 2024-06-21 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: Bhanudas - 2024-06-19 10:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-19 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-19 03:30:00+00:00>, <Appointment: Kajal (elicure) - 2024-06-19 20:00:00+00:00>, <Appointment: Saksham (elicure) - 2024-06-19 17:00:00+00:00>, <Appointment: Saavi Main - 2024-06-20 09:30:00+00:00>, <Appointment: Bhanudas - 2024-06-20 11:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-20 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-20 15:30:00+00:00>, <Appointment: Pramod (Elicure) - 2024-06-20 06:00:00+00:00>, <Appointment: Astha (Elicure) - 2024-06-20 20:00:00+00:00>, <Appointment: Shaurya (Elicure) - 2024-06-20 19:00:00+00:00>, <Appointment: Bhanudas - 2024-06-21 11:00:00+00:00>, <Appointment: Shilpa Gadre - 2024-06-21 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d5b040>, 'doctor': <Doctor: Doctor object (4)>}]
+(0.051) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4 LIMIT 21; args=(4,); alias=default
+(0.050) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4 LIMIT 21; args=(4,); alias=default
+Exception while resolving variable 'admin_appointments' in template 'doctor_appointments.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9b910>>, 'request': <WSGIRequest: GET '/admin/dashboard/doctors/4/appointments/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/admin/dashboard/doctors/4/appointments/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'paginator': None, 'page_obj': None, 'is_paginated': False, 'object_list': <QuerySet [<Appointment: Bhanudas - 2024-06-19 10:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-19 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-19 03:30:00+00:00>, <Appointment: Kajal (elicure) - 2024-06-19 20:00:00+00:00>, <Appointment: Saksham (elicure) - 2024-06-19 17:00:00+00:00>, <Appointment: Saavi Main - 2024-06-20 09:30:00+00:00>, <Appointment: Bhanudas - 2024-06-20 11:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-20 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-20 15:30:00+00:00>, <Appointment: Pramod (Elicure) - 2024-06-20 06:00:00+00:00>, <Appointment: Astha (Elicure) - 2024-06-20 20:00:00+00:00>, <Appointment: Shaurya (Elicure) - 2024-06-20 19:00:00+00:00>, <Appointment: Bhanudas - 2024-06-21 11:00:00+00:00>, <Appointment: Shilpa Gadre - 2024-06-21 12:00:00+00:00>]>, 'appointment_list': <QuerySet [<Appointment: Bhanudas - 2024-06-19 10:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-19 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-19 03:30:00+00:00>, <Appointment: Kajal (elicure) - 2024-06-19 20:00:00+00:00>, <Appointment: Saksham (elicure) - 2024-06-19 17:00:00+00:00>, <Appointment: Saavi Main - 2024-06-20 09:30:00+00:00>, <Appointment: Bhanudas - 2024-06-20 11:00:00+00:00>, <Appointment: Nilima Joshi - 2024-06-20 12:00:00+00:00>, <Appointment: Vaayu Agrawal - 2024-06-20 15:30:00+00:00>, <Appointment: Pramod (Elicure) - 2024-06-20 06:00:00+00:00>, <Appointment: Astha (Elicure) - 2024-06-20 20:00:00+00:00>, <Appointment: Shaurya (Elicure) - 2024-06-20 19:00:00+00:00>, <Appointment: Bhanudas - 2024-06-21 11:00:00+00:00>, <Appointment: Shilpa Gadre - 2024-06-21 12:00:00+00:00>]>, 'view': <adminapp.views.DoctorAppointmentsView object at 0x105d5b040>, 'doctor': <Doctor: Doctor object (4)>, 'doctor_detail_url': ''}]
+(0.052) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method`, `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_appointment` INNER JOIN `doctorportal_doctor` ON (`doctorportal_appointment`.`doctor_id` = `doctorportal_doctor`.`id`) WHERE `doctorportal_appointment`.`doctor_id` = 4; args=(4,); alias=default
+"GET /admin/dashboard/doctors/4/appointments/ HTTP/1.1" 200 31930
+(0.051) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.050) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.051) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`expire_date` > '2024-06-22 18:42:11.283890' AND `django_session`.`session_key` = 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4') LIMIT 21; args=('2024-06-22 18:42:11.283890', 'dxiaok7295ywlqhuwcqjmadj6pbqkjl4'); alias=default
+(0.051) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`id` = 1 LIMIT 21; args=(1,); alias=default
+(0.051) SELECT `doctorportal_appointment`.`id`, `doctorportal_appointment`.`doctor_id`, `doctorportal_appointment`.`patient_name`, `doctorportal_appointment`.`appointment_time`, `doctorportal_appointment`.`number_of_sessions`, `doctorportal_appointment`.`rx_complete`, `doctorportal_appointment`.`amount`, `doctorportal_appointment`.`amount_paid`, `doctorportal_appointment`.`payment_method` FROM `doctorportal_appointment` WHERE `doctorportal_appointment`.`id` = 9 LIMIT 21; args=(9,); alias=default
+Exception while resolving variable 'admin_dashboard' in template 'edit_appointment.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_dashboard'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_dashboard] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9acb0>>, 'request': <WSGIRequest: GET '/appointments/9/edit/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/appointments/9/edit/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'form': <AppointmentForm bound=False, valid=Unknown, fields=(patient_name;appointment_time;number_of_sessions;rx_complete;amount;payment_method)>}]
+(0.052) SELECT `doctorportal_doctor`.`id`, `doctorportal_doctor`.`user_id`, `doctorportal_doctor`.`full_name`, `doctorportal_doctor`.`date_of_birth`, `doctorportal_doctor`.`whatsapp_number`, `doctorportal_doctor`.`alternate_number`, `doctorportal_doctor`.`email`, `doctorportal_doctor`.`address`, `doctorportal_doctor`.`speciality`, `doctorportal_doctor`.`registration_number`, `doctorportal_doctor`.`start_time`, `doctorportal_doctor`.`end_time`, `doctorportal_doctor`.`geographical_areas`, `doctorportal_doctor`.`photo`, `doctorportal_doctor`.`degree_certificate`, `doctorportal_doctor`.`profile_completed` FROM `doctorportal_doctor` WHERE `doctorportal_doctor`.`user_id` = 1 LIMIT 21; args=(1,); alias=default
+Exception while resolving variable 'doctor_profile' in template 'edit_appointment.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+TypeError: 'User' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 885, in _resolve_lookup
+    current = getattr(current, bit)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/utils/functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 524, in __get__
+    raise self.RelatedObjectDoesNotExist(
+django.contrib.auth.models.User.doctor_profile.RelatedObjectDoesNotExist: User has no doctor_profile.
+Exception while resolving variable 'admin_appointments' in template 'edit_appointment.html'.
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 875, in _resolve_lookup
+    current = current[bit]
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/context.py", line 83, in __getitem__
+    raise KeyError(key)
+KeyError: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 881, in _resolve_lookup
+    if isinstance(current, BaseContext) and getattr(
+AttributeError: type object 'RequestContext' has no attribute 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'admin_appointments'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sanchaythalnerkar/CuraHealthCare/env/lib/python3.10/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    raise VariableDoesNotExist(
+django.template.base.VariableDoesNotExist: Failed lookup for key [admin_appointments] in [{'True': True, 'False': False, 'None': None}, {'csrf_token': <SimpleLazyObject: <function csrf.<locals>._get_val at 0x106c9acb0>>, 'request': <WSGIRequest: GET '/appointments/9/edit/'>, 'user': <SimpleLazyObject: <User: sanchay>>, 'perms': PermWrapper(<SimpleLazyObject: <User: sanchay>>), 'messages': <FallbackStorage: request=<WSGIRequest: GET '/appointments/9/edit/'>>, 'DEFAULT_MESSAGE_LEVELS': {'DEBUG': 10, 'INFO': 20, 'SUCCESS': 25, 'WARNING': 30, 'ERROR': 40}, 'base_template_name': 'base_admin.html'}, {}, {'form': <AppointmentForm bound=False, valid=Unknown, fields=(patient_name;appointment_time;number_of_sessions;rx_complete;amount;payment_method)>, 'doctor_detail_url': ''}]
+"GET /appointments/9/edit/ HTTP/1.1" 200 19595
