@@ -50,7 +50,7 @@ class CustomLoginView(LoginView):
 
         if user.is_superuser:
             logger.debug("User is superuser. Redirecting to admin index.")
-            return HttpResponseRedirect(reverse("admin:index"))
+            return HttpResponseRedirect(reverse("admin_dashboard"))
         elif not Doctor.objects.filter(user=user).exists():
             logger.debug("Doctor profile does not exist. Redirecting to doctor_add.")
             return redirect("doctor_add")
