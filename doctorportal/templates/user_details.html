@@ -10,32 +10,53 @@
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
-                <div class="card-header bg-primary text-white">
-                    <h2 class="text-center text-white">Profile Details</h2>
-                </div>
+                    <h2 class="text-center">Profile Details</h2>
                 </div>
                 <div class="card-body">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {% for error in form.non_field_errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
                     <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                         {% csrf_token %}
                         {% for field in form %}
-                            {% if 'checkbox' in field.field.widget.template_name %}
-                                <div class="mb-3">
-                                    <label class="form-label">{{ field.label }}</label>
-                                    {% for choice_id, choice_label in field.field.choices %}
+                            <div class="mb-3">
+                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                                {% if field.field.widget.input_type == 'checkbox' %}
+                                    {% for choice in field %}
                                         <div class="form-check">
-                                            <input type="checkbox" name="{{ field.name }}" value="{{ choice_id }}"
-                                                   id="{{ field.auto_id }}_{{ forloop.counter0 }}" class="form-check-input"
-                                                   {% if choice_id in field.value|default_if_none:'' %} checked{% endif %}>
-                                            <label class="form-check-label" for="{{ field.auto_id }}_{{ forloop.counter0 }}">{{ choice_label }}</label>
+                                            {{ choice.tag }}
+                                            <label class="form-check-label" for="{{ choice.id_for_label }}">
+                                                {{ choice.choice_label }}
+                                            </label>
                                         </div>
                                     {% endfor %}
-                                </div>
-                            {% else %}
-                                <div class="mb-3">
-                                    <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                                {% else %}
                                     {{ field }}
-                                </div>
-                            {% endif %}
+                                {% endif %}
+                                {% if field.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in field.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
                         {% endfor %}
 
                         <div class="text-center">
@@ -49,4 +70,51 @@
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch(form.action, {
+            method: form.method,
+            body: new FormData(form),
+            headers: {
+                'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = data.redirect_url;
+            } else {
+                // Handle errors
+                console.error('Form submission failed:', data.errors);
+                // Update the DOM to show errors
+                Object.keys(data.errors).forEach(fieldName => {
+                    const fieldElement = document.getElementById('id_' + fieldName);
+                    if (fieldElement) {
+                        fieldElement.classList.add('is-invalid');
+                        const errorDiv = fieldElement.nextElementSibling || document.createElement('div');
+                        errorDiv.className = 'invalid-feedback d-block';
+                        errorDiv.textContent = data.errors[fieldName].join(' ');
+                        if (!fieldElement.nextElementSibling) {
+                            fieldElement.parentNode.appendChild(errorDiv);
+                        }
+                    }
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+</script>
 {% endblock %}

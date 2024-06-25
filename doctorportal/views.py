@@ -9,7 +9,7 @@ from django.views.generic.edit import UpdateView, CreateView
 from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from django.core.exceptions import PermissionDenied
-from django.http import HttpResponseForbidden, HttpResponseRedirect
+from django.http import HttpResponseForbidden, HttpResponseRedirect, JsonResponse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.urls import reverse
@@ -80,49 +80,42 @@ class DoctorCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["button_text"] = "Create Profile"  # Dynamically set the button text
+        context["button_text"] = "Create Profile"
         return context
 
     def form_valid(self, form):
-        # Associate the logged-in user with the form instance
         form.instance.user = self.request.user
-
-        # Save the form instance and set self.object to the newly created doctor
         self.object = form.save(commit=False)
-        self.object.profile_completed = True  # Mark profile as completed
+        self.object.profile_completed = True
         self.object.save()
-
-        # Save many-to-many data for the form.
         form.save_m2m()
 
-        # Since the object is saved, redirect to get_success_url
+        if self.request.headers.get("X-Requested-With") == "XMLHttpRequest":
+            return JsonResponse(
+                {"success": True, "redirect_url": self.get_success_url()}
+            )
         return redirect(self.get_success_url())
 
     def form_invalid(self, form):
-        # Iterate over the form errors
         for field, errors in form.errors.items():
             for error in errors:
-                # Add the error as a Django message
                 messages.error(self.request, f"Error in {field}: {error}")
 
-        # Return the form to the template with the non-field and field errors
+        if self.request.headers.get("X-Requested-With") == "XMLHttpRequest":
+            return JsonResponse({"success": False, "errors": form.errors})
         return self.render_to_response(self.get_context_data(form=form))
 
     def get_success_url(self):
-        # Make sure self.object is correctly set
         if self.object and hasattr(self.object, "pk"):
             return reverse_lazy("doctor_detail", kwargs={"pk": self.object.pk})
         else:
-            # Fallback if self.object is not set
-            return reverse_lazy("home")  # Adjust to appropriate fallback URL
+            return reverse_lazy("home")
 
     def dispatch(self, request, *args, **kwargs):
-        # Check if the user already has a completed profile
         if (
             hasattr(request.user, "doctor_profile")
             and request.user.doctor_profile.profile_completed
         ):
-            # Redirect to the detail page of the existing profile
             return redirect(
                 reverse_lazy(
                     "doctor_detail", kwargs={"pk": request.user.doctor_profile.pk}
